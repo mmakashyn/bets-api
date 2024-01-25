@@ -220,3 +220,5 @@ if not DEBUG:
 # APPLE_SHARED_SECRET = env.str("APPLE_SHARED_SECRET")
 # APPLE_SANDBOX = env.bool("APPLE_SANDBOX", True)
 
+
+RAPID_API_KEY = os.environ.get("RAPID_API_KEY")
