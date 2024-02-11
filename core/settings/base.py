@@ -196,6 +196,8 @@ COUNTRIES_OVERRIDE = {
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10,
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.SessionAuthentication",
@@ -209,8 +211,6 @@ SIMPLE_JWT = {
     "ROTATE_REFRESH_TOKENS": True,
 }
 
-
-
 if not DEBUG:
     REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = (
         "rest_framework.renderers.JSONRenderer",
@@ -220,3 +220,5 @@ if not DEBUG:
 # APPLE_SHARED_SECRET = env.str("APPLE_SHARED_SECRET")
 # APPLE_SANDBOX = env.bool("APPLE_SANDBOX", True)
 
+
+RAPID_API_KEY = os.environ.get("RAPID_API_KEY")
